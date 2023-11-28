@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-function Search({ onSearch }) {
+function Search({ handleSearch }) {
 
-  const [typeValue, setTypeValue] = useState("")
+  const [searchInput, setSearchInput] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSearch(typeValue)
+    console.log("submitted");
+    handleSearch(searchInput);
   }
 
   return (
@@ -15,8 +16,8 @@ function Search({ onSearch }) {
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={typeValue}
-        onChange={(e) => setTypeValue(e.target.value)}
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>
@@ -24,3 +25,31 @@ function Search({ onSearch }) {
 }
 
 export default Search;
+
+// ? Self code 
+// import React, {useState} from "react";
+
+// function Search({ onSearch }) {
+
+//   const [typeValue, setTypeValue] = useState("")
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     onSearch(typeValue)
+//   }
+
+//   return (
+//     <form className="searchbar" onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         id="search"
+//         placeholder="search free stuff"
+//         value={typeValue}
+//         onChange={(e) => setTypeValue(e.target.value)}
+//       />
+//       <button type="submit">🔍</button>
+//     </form>
+//   );
+// }
+
+// export default Search;
